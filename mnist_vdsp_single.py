@@ -32,7 +32,8 @@ import itertools
 import random
 import logging
 
-import nengo_spinnaker
+# import nengo_spinnaker
+import nengo_ocl
 
 def evaluate_mnist_single(args):
 
@@ -155,8 +156,8 @@ def evaluate_mnist_single(args):
         
 
 
-    # with nengo_ocl.Simulator(model) as sim :   
-    with nengo_spinnaker.Simulator(model) as sim:
+    with nengo.Simulator(model) as sim :   
+    # with nengo_spinnaker.Simulator(model) as sim:
 
         
         w.output.set_signal_vmem(sim.signals[sim.model.sig[input_layer.neurons]["voltage"]])

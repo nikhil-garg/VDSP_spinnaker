@@ -61,7 +61,7 @@ def args():
     )
     parser.add_argument(
         "--n_neurons",
-        default=1,
+        default=20,
         type=float,
         help="Number of output neurons",
     )
@@ -89,6 +89,18 @@ def args():
         default="default",
         type=str,
         help="filename of final weights",
+    )
+    parser.add_argument(
+        "--inhib_factor",
+        default=-1,
+        type=float,
+        help="inhib_factor",
+    )
+    parser.add_argument(
+        "--inhib_synapse",
+        default=0.005,
+        type=float,
+        help="inhib_synapse",
     )
 
     my_args = parser.parse_args()

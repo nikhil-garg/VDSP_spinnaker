@@ -28,11 +28,11 @@ if __name__ == '__main__':
 	np.random.seed(seed)
 
 	parameters = dict(
-		digit=[0,1,2,3,4,5,6,7,8,9],
+		digit=[2,7],
 		input_nbr=[60000],
 		g_max=[1/784]
-		,tau_in = [0.3]
-		,tau_out = [0.1]
+		,tau_in = [0.1,0.06]
+		,tau_out = [0.1,0.06]
 		, lr = [0.0001]
     )
 	param_values = [v for v in parameters.values()]

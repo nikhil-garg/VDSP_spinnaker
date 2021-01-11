@@ -15,7 +15,7 @@ plt.rcParams.update({'figure.max_open_warning': 0})
 import time
 
 from InputData import PresentInputWithPause
-from custom_rule import CustomRule
+# from custom_rule import CustomRule
 # from custom_rule import CustomRule_prev
 
 from nengo_extras.graphviz import net_diagram
@@ -310,7 +310,7 @@ class CustomRule_post(nengo.Process):
 
 
 
-
+#create new neuron type STDPLIF 
 def build_or_passthrough(model, obj, signal):
     """Builds the obj on signal, or returns the signal if obj is None."""
     return signal if obj is None else model.build(obj, signal)
@@ -415,7 +415,7 @@ class STDPLIF(AdaptiveLIF):
         # set spiked voltages to zero, refractory times to tau_ref, and
         # rectify negative voltages to a floor of min_voltage
         voltage[voltage < min_voltage] = min_voltage
-        voltage[spiked_mask] = -1
+        voltage[spiked_mask] = 0
         voltage[refractory_time > 0] = 0
         refractory_time[spiked_mask] = self.tau_ref + t_spike
         # ----------------------------
@@ -457,10 +457,6 @@ def build_STDPLIF(model, STDPlif, neurons):
                                     "adaptation": model.sig[neurons]['adaptation'],
                                     "inhib": model.sig[neurons]['inhib']
                                      }))
-
-
-
-
 
 import os
 import re
